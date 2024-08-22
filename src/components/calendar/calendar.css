@@ -1,0 +1,19 @@
+.calendar-wrapper {
+    @apply container mt-10
+}
+
+.calendar-content, .c-header-day {
+    @apply  grid grid-cols-7 gap-0
+}
+
+.c-header-day-item {
+    @apply h-10 flex items-center justify-center border bg-slate-100
+}
+
+.c-header-nav {
+    @apply flex justify-between mb-2
+}
+
+.c-day {
+    @apply aspect-square flex items-center justify-center border bg-slate-300
+}
