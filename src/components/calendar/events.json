@@ -1,22 +1,30 @@
 [
     {
         "title": "Le structure de donnée en python",
+        "color": "bg-pink-custom",
         "from": "2024-08-03",
-        "to": "2024-08-07"
+        "to": "2024-08-07",
+        "id": "1"
     },
     {
-        "title": "Le structure conditionnel en python",
+        "title": "Les condition en python",
+        "color": "bg-amber-custom",
         "from": "2024-08-07",
-        "to": "2024-08-08"
+        "to": "2024-08-08",
+        "id": "2"
     },
     {
-        "title": "Le structure répétitive en python",
+        "title": "Les boucles  en python",
+        "color": "bg-white-custom",
         "from": "2024-08-08",
-        "to": "2024-08-12"
+        "to": "2024-08-12",
+        "id": "3"
     },
     {
         "title": "Conférence sur la création d'une IA",
+        "color": "bg-yellow-custom",
         "from": "2024-08-01",
-        "to": "2024-08-13"
+        "to": "2024-08-13",
+        "id": "4"
     }
 ]

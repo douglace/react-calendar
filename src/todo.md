@@ -1,0 +1,4 @@
+- Découpez le mois en semaine ::FAIT
+- Formatez les events pour avoir les date en moment js ::FAIT
+- Crée une fonction qui prend le début et la fin d'une semaine et ordone les event de la semaine
+- le maximum d'event à afficher par jour serais de trois

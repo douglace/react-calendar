@@ -9,6 +9,6 @@ export default function CalendarContent()
     return (<div className="calendar-content">
         {scape.map(s => <div key={s}></div>)}
          
-        {days.map(d => <CalendarDay day={d.date()} key={d.date() + "-daty"} />)}
+        {days.map(d => <CalendarDay day={d} key={d.date() + "-daty"} />)}
     </div>)
 }

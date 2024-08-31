@@ -4,9 +4,11 @@ import {createContext, ReactNode, useState} from "react";
 import events from "./events.json"
 
 export type CalendarEvent = {
+    color: string,
     title: string,
     from: string,
     to: string,
+    id: string,
 }
 type CalendarContextType = {
     events: CalendarEvent[],

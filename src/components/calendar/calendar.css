@@ -15,5 +15,53 @@
 }
 
 .c-day {
-    @apply aspect-square flex items-center justify-center border bg-slate-300
+    @apply aspect-square flex  justify-center border bg-slate-300 relative
+}
+
+.event-pos-1 {
+    @apply top-[calc(40%)] -translate-y-[30%] z-30
+}
+.event-pos-2 {
+    @apply top-[calc(40%+20px)] -translate-y-[30%] z-40
+}
+.event-pos-3 {
+    @apply top-[calc(40%+40px)] -translate-y-[30%] z-50
+}
+
+.event-size-7 {
+    @apply absolute  w-[700%] 
+}
+.event-size-6 {
+    @apply absolute  w-[600%] 
+}
+.event-size-5 {
+    @apply absolute  w-[500%] 
+}
+.event-size-4 {
+    @apply absolute  w-[400%] 
+}
+.event-size-3 {
+    @apply absolute  w-[300%] 
+}
+.event-size-2 {
+    @apply absolute  w-[200%] 
+}
+.event-size-1 {
+    @apply absolute  w-[100%] 
+}
+
+.bg-pink-custom {
+    @apply bg-pink-300
+}
+
+.bg-amber-custom {
+    @apply bg-amber-300
+}
+
+.bg-white-custom {
+    @apply bg-neutral-800 text-white
+}
+
+.bg-yellow-custom {
+    @apply bg-yellow-800 text-white
 }
