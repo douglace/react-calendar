@@ -15,17 +15,24 @@
 }
 
 .c-day {
-    @apply aspect-square flex  justify-center border bg-slate-300 relative
+    @apply aspect-square flex flex-col gap-1  justify-center border bg-slate-300 relative
+}
+
+.event-item {
+    @apply border rounded-sm flex overflow-hidden h-7 px-3 py-1
 }
 
 .event-pos-1 {
-    @apply top-[calc(40%)] -translate-y-[30%] z-30
+    @apply top-0  z-30
 }
 .event-pos-2 {
-    @apply top-[calc(40%+20px)] -translate-y-[30%] z-40
+    @apply top-7  z-40
 }
 .event-pos-3 {
-    @apply top-[calc(40%+40px)] -translate-y-[30%] z-50
+    @apply top-14  z-50
+}
+.event-pos-4 {
+    @apply top-20  z-50
 }
 
 .event-size-7 {

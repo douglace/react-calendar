@@ -12,18 +12,18 @@ export default function CalendarDay({day}:CalendarDayProps) {
 
     
 
-    return <article className="c-day flex-col p-1 gap-1">
+    return <article className="c-day ">
         {
             events.length == 0
             ? day.date()
-            : events.map((a,i) => <CalendarDayItem key={i} event={a} day={day} />)
+            : events.map((a,i) => <EventItem key={i} event={a} day={day} />)
         }
     </article>
 }
 
-function CalendarDayItem({event}:{event:EventWeekType, day: moment.Moment})
+function EventItem({event}:{event:EventWeekType, day: moment.Moment})
 {   
-    return <div className={`border rounded-sm flex overflow-hidden  ${event.event.color} event-pos-${event.position} event-size-${event.duration}`}>
+    return <div className={`event-item  ${event.event.color} event-pos-${event.position} event-size-${event.duration}`}>
         {event.event.title.substring(0, 100)}
     </div>
 }
