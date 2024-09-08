@@ -1,3 +1,4 @@
+import { useMemo } from "react";
 import { EventWeekType } from "../classes/CalendarEvent";
 import { useCalendar } from "../useCalendar"
 import moment from "moment";
@@ -8,10 +9,8 @@ type CalendarDayProps = {
 
 export default function CalendarDay({day}:CalendarDayProps) {
     const {getEventsByDay} = useCalendar();
-    const events = getEventsByDay(day);
-
+    const events = useMemo(() => getEventsByDay(day), [day]);
     
-
     return <article className="c-day ">
         {
             events.length == 0

@@ -2,7 +2,7 @@ import CalendarObject from "@/components/calendar/classes/CalendarObject";
 import EventManager, { EventFormatedType } from "@/components/calendar/classes/EventManager";
 import moment from 'moment';
 
-type EventWeekType = {
+export type EventWeekType = {
     from: moment.Moment,
     to: moment.Moment,
     duration: number,
@@ -66,6 +66,9 @@ class CalendarEvent {
                         event:event,
                         position: position
                     });
+                    if (event.id == "8") {
+                        //console.log(event, position, today.format("YYYY MM DD"));
+                    }
                     eventData[event.id] = {
                         from: today,
                         to: endEventWeek,
@@ -87,14 +90,37 @@ class CalendarEvent {
 
     private getPositionByDay(day:moment.Moment): number {
         if(this.takenPosition.length == 0) return 1;
-        //compte tous les jours dont la date de début et de fin
-        // sont comprisent entre la date du jour
-        let position = 1;
+        // compte tous les jours dont la date de début et de fin
+        // sont comprisent entre la date du jour.
+
+        let position = 0;
+        let takenPositionDays = [];
         for(let pos of this.takenPosition) {
             if (pos.from <= day && pos.to >= day) {
-                position++;
+                //position++;
+                takenPositionDays.push(pos.position)
             }
         }
+
+        takenPositionDays = takenPositionDays.sort((a, b) => a - b);
+        const maxPosition = takenPositionDays.length
+            ? Math.max(...takenPositionDays)
+            : 1
+        ;
+
+        for(let i = 1; i <= Math.max(...takenPositionDays); i++) {
+            if (!takenPositionDays.includes(i)) {
+                position =  i;
+                break;
+            }
+        }
+        
+        if (position == 0) {
+            position = maxPosition + 1;
+            console.log(maxPosition)
+        } 
+        
+        
 
         return position;
     }
@@ -108,7 +134,6 @@ class CalendarEvent {
                 }
             }
         };
-        console.log(events)
         return events;
     }
 
