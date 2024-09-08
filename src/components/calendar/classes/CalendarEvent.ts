@@ -117,7 +117,6 @@ class CalendarEvent {
         
         if (position == 0) {
             position = maxPosition + 1;
-            console.log(maxPosition)
         } 
         
         

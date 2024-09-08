@@ -4,6 +4,7 @@ import {createContext, ReactNode, useState} from "react";
 import events from "./events.json"
 
 export type CalendarEvent = {
+    fullday?: boolean,
     color: string,
     title: string,
     from: string,
