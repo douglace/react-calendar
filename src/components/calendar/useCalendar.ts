@@ -26,6 +26,7 @@ export function useCalendar() {
         firstDayOfWeek: c.firstDayOfWeek(),
         escapeDays: c.totalDayBeforeStartMonth(),
         eventsWeek: ce.getEventsWeek(),
-        getEventsByDay: (day:moment.Moment) => ce.getEventsByDay(day)
+        getEventsByDay: (day:moment.Moment) => ce.getEventsByDay(day),
+        getEventsByType: (day:moment.Moment) => ce.getEventByTypeByDay(day),
     }), [date, c, em, ce]);
 }

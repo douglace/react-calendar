@@ -5,6 +5,7 @@ import moment from 'moment';
 export type EventWeekType = {
     from: moment.Moment,
     to: moment.Moment,
+    type: "hour"|"day",
     duration: number,
     event: EventFormatedType,
     position: number
@@ -50,32 +51,39 @@ class CalendarEvent {
             const today = moment(from.format("YYYY-MM-DD"), "YYYY-MM-DD")
  
             for(let event of this.em.events) {
-                if (
-                     from >= event.from && from <= event.to &&
-                     (typeof eventData[event.id] == 'undefined')
-                ) {
-                     const endEventWeek = event.to > to ? to : event.to;
-                     
+                
+                const isHour = event.type == "hour" && 
+                    from.format("YYYY-MM-DD") == event.from.format("YYYY-MM-DD") &&
+                    (typeof eventData[event.id] == 'undefined')
+                ;
+
+                const isDay = from >= event.from && from <= event.to &&
+                (typeof eventData[event.id] == 'undefined');
+                
+                if ( isHour || isDay ) {
+                    const endEventWeek = event.to > to ? to : event.to;
+
                     if (endEventWeek < from) {
                         continue;
                     }
                     const position = this.getPositionByDay(today);
+                    
                     this.takenPosition.push({
                         from: today,
                         to: endEventWeek,
                         event:event,
                         position: position
                     });
-                    if (event.id == "8") {
-                        //console.log(event, position, today.format("YYYY MM DD"));
-                    }
+                    
                     eventData[event.id] = {
                         from: today,
                         to: endEventWeek,
-                        duration: endEventWeek.diff(from, 'days') + 1,
+                        type: isHour ? "hour" : "day",
+                        duration: isHour ? event.duration :endEventWeek.diff(from, 'days') + 1,
                         event:event,
                         position: position
                     }
+                    
                 }
             }
             from.add(1, "days");
@@ -126,6 +134,7 @@ class CalendarEvent {
 
     getEventsByDay(day:moment.Moment) {
         let events:EventWeekType[] = [];
+        
         for (const week of this.getEventsWeek()) {
             for(const event of Object.values(week)) {
                 if (event.from.format('YYYY-MM-DD') == day.format('YYYY-MM-DD')) {
@@ -134,6 +143,18 @@ class CalendarEvent {
             }
         };
         return events;
+    }
+
+    getEventByTypeByDay(day:moment.Moment) {
+        const events = this.getEventsByDay(day);
+        const [hourEvents, dayEvents] = [
+            events.filter(e => e.type == "hour"),
+            events.filter(e => e.type == "day"),
+        ];
+        return {
+            hourEvents,
+            dayEvents
+        }
     }
 
 }
