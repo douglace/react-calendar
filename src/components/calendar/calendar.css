@@ -1,4 +1,8 @@
 .calendar-wrapper {
+    --event-height: 20px
+}
+
+.calendar-wrapper {
     @apply container mt-10
 }
 
@@ -19,8 +23,13 @@
 }
 
 .event-item {
-    @apply border rounded-sm flex overflow-hidden h-7 px-3 py-1
+    @apply border rounded-sm flex overflow-hidden h-7 px-3 py-1 
 }
+
+.event-item.--hour {
+    @apply absolute flex items-center gap-1 !border-0 bg-black text-white mx-0 
+}
+
 
 .event-pos-1 {
     @apply top-0  z-30
@@ -32,7 +41,16 @@
     @apply top-14  z-50
 }
 .event-pos-4 {
-    @apply top-20  z-50
+    @apply top-[5.25rem]  z-50
+}
+.event-pos-5 {
+    @apply top-[7rem]  z-50
+}
+.event-pos-6 {
+    @apply top-[8.75rem]  z-50
+}
+.event-pos-7 {
+    @apply top-[10.5rem]  z-50
 }
 
 .event-size-7 {

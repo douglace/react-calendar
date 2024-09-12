@@ -118,5 +118,26 @@
         "to": "2024-08-26",
         "fullday": true,
         "id": "17"
+    },
+    {
+        "title": "Event 18",
+        "color": "bg-yellow-custom",
+        "from": "2024-08-11",
+        "to": "2024-08-19",
+        "id": "18"
+    },
+    {
+        "title": "Event 19 je suis un peux long",
+        "color": "bg-amber-custom",
+        "from": "2024-08-14",
+        "to": "2024-08-25",
+        "id": "19"
+    },
+    {
+        "title": "Event 20",
+        "color": "bg-yellow-custom",
+        "from": "2024-08-19",
+        "to": "2024-08-27",
+        "id": "20"
     }
 ]
