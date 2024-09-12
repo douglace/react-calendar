@@ -17,13 +17,10 @@ type CalendarDayProps = {
 export default function CalendarDay({day}:CalendarDayProps) {
     const {getEventsByDay, getEventsByType} = useCalendar();
     const events = useMemo(() => getEventsByDay(day), [day]);
-    const {hourEvents, dayEvents} = useMemo(() => getEventsByType(day), [day]);
+    //const {hourEvents, dayEvents} = useMemo(() => getEventsByType(day), [day]);
     const eventsCanShow =  useMemo(() => events.filter(e => e.position <= 4), [events]);
     const hidenEvents =  useMemo(() => events.filter(e => e.position > 4), [events]);
 
-    if (day.date() == 14) {
-        console.log(hourEvents, dayEvents);
-    }
     
     return <article className="c-day ">
         {

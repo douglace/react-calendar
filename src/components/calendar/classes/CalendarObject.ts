@@ -2,7 +2,7 @@ import moment from 'moment';
 
 type WeekNumber = 1 | 2 | 3 | 4 | 5 | 6 | 7;
 type GroupWeekType = {
-  [K in WeekNumber]?: number;
+  [K in WeekNumber]?: number|string;
 };
 
 type ParsedDayType = {
@@ -20,9 +20,6 @@ class CalendarObject {
         this._daysByWeek = this.splitDaysByWeek();
         this.pgw = this.getGroupWeek();
     }
-
-    
-
 
     getDays(): moment.Moment[] {
         let days = [];
@@ -43,7 +40,6 @@ class CalendarObject {
     splitDaysByWeek():GroupWeekType[] {
         const fdom = moment(this.firstDateOfMonth())
         
-        
         const nombreJours = fdom.daysInMonth();
         const resultat:GroupWeekType[] = [];
         let currentWeek:GroupWeekType = {};
@@ -52,10 +48,31 @@ class CalendarObject {
             : fdom.day()
         ) as WeekNumber ;
 
+        if (fdom.day() != 1) {
+            const lastMon = moment(this.firstDateOfMonth()).subtract(1, 'd');
+            const nbdayOfLastMonth = lastMon.daysInMonth();
+            const lastMonthDayStart = lastMon.daysInMonth() - (dayOfweek - 2);
+            let firstDay = 1 as WeekNumber;
+            for (let jour = lastMonthDayStart; jour <= nbdayOfLastMonth ; jour++) {
+                currentWeek[firstDay] = -jour;
+                firstDay++
+            }
+        }
+        //debugger
         for (let jour = 1; jour <= nombreJours; jour++) {
             currentWeek[dayOfweek] = jour;
 
             if (dayOfweek === 7 || jour === nombreJours) {
+
+                if (jour === nombreJours && dayOfweek !== 7) {
+                    const missingDay = 7 - dayOfweek;
+                    let nextDayOfWeek = dayOfweek % 7 + 1 as WeekNumber;
+                    for(let j = 1; j <= missingDay; j++) {
+                        currentWeek[nextDayOfWeek] = "+"+j;
+                        nextDayOfWeek = nextDayOfWeek % 7 + 1;
+                    }
+                }
+
                 resultat.push(currentWeek);
                 currentWeek = {};
             }
@@ -82,12 +99,12 @@ class CalendarObject {
         return fdow - 1 ;
     }
 
-    nextMonth() {
-        return new Date(this.date.getFullYear(), this.date.getMonth() + 1, 1);
+    nextMonth(day = 1) {
+        return new Date(this.date.getFullYear(), this.date.getMonth() + 1, day);
     }
 
-    prevMonth() {
-        return new Date(this.date.getFullYear(), this.date.getMonth() - 1, 1);
+    prevMonth(day = 1) {
+        return new Date(this.date.getFullYear(), this.date.getMonth() - 1, day);
     }
 
     momentDate()
@@ -96,9 +113,10 @@ class CalendarObject {
     }
 
     momentDateByDay(day:number) {
-        return moment(
+        const date =  moment(
             new Date(this.date.getFullYear(), this.date.getMonth(), day)
         );
+        return date;
     }
 
     getGroupWeek():ParsedDayType[][] {
@@ -109,16 +127,31 @@ class CalendarObject {
             for(let weekDay of Object.keys(week)) {
                 const weekDayParsed = parseInt(weekDay) as WeekNumber;
                 const monthDay = week[weekDayParsed];
+                let day = 0;
+                let add = 0;
+                if (typeof monthDay == "number") {
+                    if (monthDay < 0) {
+                        day = -monthDay;
+                        add = -weekDayParsed;
+                    } else {
+                        day = monthDay;
+                    }
+                    
+                } else {
+                    day = parseInt(monthDay!);
+                    add = weekDayParsed;
+                }
 
                 const gw:ParsedDayType = {
                     weekDay: weekDayParsed,
-                    monthDay: monthDay!,
-                    day: this.momentDateByDay(monthDay!)
+                    monthDay: day!,
+                    day: add < 0 ? moment(this.prevMonth(day!)) : add > 0 ? moment(this.nextMonth(day!)) :this.momentDateByDay(day!)
                 }
                 weekParsed = [...weekParsed, ...[gw]]
             }
             groupWeeks = [...groupWeeks, ...[weekParsed]] ;
         }
+        
         return groupWeeks
     }
 }

@@ -1,14 +1,24 @@
-import { cn } from "@/lib/utils"
+import { useMemo } from "react";
 import { useCalendar } from "../useCalendar"
 import CalendarDay from "./calendar-day"
+import moment from 'moment';
 
 export default function CalendarContent()
 {
-    const {escapeDays, days} = useCalendar()
-    const scape = Array.from({ length: escapeDays }, (_, index) => index);
+    const {groupWeek, isNextMonth, isPrevMonth} = useCalendar()
+
+    const days = useMemo(() => {
+        let result:moment.Moment[] = [];
+        for(let week of groupWeek) {
+            for(let d of week) {
+                result.push(d.day)
+            }
+        }
+        return result;
+    }, [groupWeek])
+
+    
     return (<div className="calendar-content">
-        {scape.map(s => <div key={s}></div>)}
-         
-        {days.map(d => <CalendarDay day={d} key={d.date() + "-daty"} />)}
+        {days.map(d => <CalendarDay day={d} key={d.date() + "-day" +( isNextMonth(d) ? "-next" : (isPrevMonth(d) ? "-prev" : ""))} />)}
     </div>)
 }

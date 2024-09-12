@@ -5,6 +5,7 @@ import { CalendarContext } from "@/components/calendar/calendar-provider";
 import EventManager from "@/components/calendar/classes/EventManager";
 import CalendarEvent from "@/components/calendar/classes/CalendarEvent";
 import CalendarObject from "@/components/calendar/classes/CalendarObject";
+import moment from "moment";
 
 export function useCalendar() {
     const { events, date, editDate } = useContext(CalendarContext);
@@ -20,8 +21,11 @@ export function useCalendar() {
         setDate: editDate,
         goToNextMonth: () => editDate(c.nextMonth()),
         goToPrevMonth: () => editDate(c.prevMonth()),
+        isNextMonth: (d:moment.Moment) => d.month() == (moment(c.nextMonth())).month(),
+        isPrevMonth: (d:moment.Moment) => d.month() == (moment(c.prevMonth())).month(),
         momentDate: c.momentDate(),
         days: c.getDays(),
+        groupWeek: c.getGroupWeek(),
         daysOfWeek: c.getDaysOfWeek(),
         firstDayOfWeek: c.firstDayOfWeek(),
         escapeDays: c.totalDayBeforeStartMonth(),
