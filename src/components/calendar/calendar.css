@@ -22,6 +22,20 @@
     @apply aspect-square flex flex-col gap-1  justify-center border bg-slate-300 relative
 }
 
+.day-bottom {
+    @apply absolute bottom-1 left-0 w-full flex justify-between
+}
+
+.day-bottom .more-event {
+    @apply w-5 h-5 bg-white rounded-full absolute left-1 bottom-1 shadow-md flex items-center
+    justify-center
+}
+
+button.add-event {
+    @apply w-8 h-8 bg-white rounded-full opacity-0 scale-0 flex items-center justify-center
+    cursor-pointer absolute right-1 bottom-1 shadow-md
+}
+
 .event-item {
     @apply border rounded-sm flex overflow-hidden h-7 px-3 py-1 
 }
