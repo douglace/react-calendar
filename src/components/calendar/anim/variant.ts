@@ -1,5 +1,5 @@
 const EventDayVariant = {
-    initial:{ opacity: 0, scale: 0.8 },
+    initial:{ opacity: 0, scale: 0.8},
     animate:{ opacity: 1, scale: 1, transform: 'translate(-50%, -5O%)'},
     exit:{ opacity: 0, scale: 0.8},
     transition:{
@@ -10,9 +10,9 @@ const EventDayVariant = {
 }
 
 const MoreEventVariant = {
-    initial: { opacity: 0, scale: 0.8 },
-    animate: { opacity: 1, scale: 1 },
-    exit: { opacity: 0, scale: 0.8 },
+    initial: { opacity: 0, scale: 0.8, transform: 'translate(-50%, -5O%)' },
+    animate: { opacity: 1, scale: 1, transform: 'translate(0, 0)' },
+    exit: { opacity: 0, scale: 0.8, transform: 'translate(-50%, -5O%)' },
     transition: {
         type: 'tween', // Utilisation du type tween
         duration: 0.3,

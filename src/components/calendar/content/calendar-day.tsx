@@ -34,11 +34,11 @@ export default function CalendarDay({day}:CalendarDayProps) {
     
 
     const showAddButton = () => {
-        animate('.add-event', {opacity: 1, scale: 1})
+        animate('.add-event', {opacity: 1, scale: 1, rotate: "90deg"})
     }
 
     const hiddenAddButton = () => {
-        animate('.add-event', {opacity: 0, scale: 0})
+        animate('.add-event', {opacity: 0, scale: 0, rotate: "-90deg"})
     }
     
     return <article ref={scope} className="c-day" 

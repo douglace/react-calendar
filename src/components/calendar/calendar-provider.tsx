@@ -53,8 +53,8 @@ export function CalendarContextProvider ({children, defaultDate = new Date()}: C
         editEvent({
             id: event.id,
             fullday: event.fullday,
-            from: from.format("YYYY-MM-DD"),
-            to: to.format("YYYY-MM-DD"),
+            from: from.format("YYYY-MM-DD HH:mm:ss"),
+            to: to.format("YYYY-MM-DD HH:mm:ss"),
             color: event.color,
             title: event.title
         });

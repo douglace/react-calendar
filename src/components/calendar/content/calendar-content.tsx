@@ -23,6 +23,14 @@ export default function CalendarContent()
     const handleDragEnd = (event:DragEndEvent) => {
         const current = event.active.data.current as EventWeekType
         const newFrom = event.over?.data.current?.day as moment.Moment
+
+        newFrom.set({
+            hour: current.event.from.get('hour'), 
+            minute: current.event.from.get('minute'), 
+            second: current.event.from.get('second'), 
+        })
+
+        console.log(newFrom.format("YYYY-MM-DD HH:mm:ss"),current.event.from.get('hour'),)
         const to = moment(newFrom).add(
             current.event.duration, 
             (current.type == "day" ? "d" : "h")
