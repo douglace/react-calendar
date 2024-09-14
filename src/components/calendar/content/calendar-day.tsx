@@ -32,7 +32,7 @@ export default function CalendarDay({day}:CalendarDayProps) {
     });
 
     const style = {
-        backgroundColor: isOver ? 'green' : undefined,
+        backgroundColor: isOver ? '#5FAD56' : undefined,
     };
 
     const opacity = useMemo(() => isNextMonth(day) || isPrevMonth(day) ? .5 : 1, [day]);
@@ -118,12 +118,12 @@ export default function CalendarDay({day}:CalendarDayProps) {
             <div className="day-bottom">
                 <AnimatePresence mode="wait">
                     {
-                        hidenEvents.length > 0
+                        events.length > 0
                         ?   (
                                 !open
                                 ? <MotionMoreEvents
                                     triggerOpen={() => setOpen(true)}
-                                    totalEvent={hidenEvents.length}
+                                    totalEvent={events.length}
                                     layoutId={"events"+day.unix()} 
                                     animate={"animate"}
                                     initial={"initial"}

@@ -47,10 +47,12 @@ export default function CalendarContent()
     }
 
     const handleDragStart= (event:DragStartEvent) => {
+        return; 
         //console.log(event, "start")
     }
 
     const handleDragOver= (event:DragOverEvent) => {
+        return;
         //console.log(event, 'over')
     }
 
@@ -60,6 +62,27 @@ export default function CalendarContent()
         onDragEnd={handleDragEnd}
         onDragStart={handleDragStart}
         onDragOver={handleDragOver}
+        accessibility={{
+            announcements: {
+                onDragOver({ active, over }) {
+                    console.log(active, over)
+                    return undefined
+                },
+                // Ajout des méthodes manquantes
+                onDragStart({ active }) {
+                    console.log(active, "start");
+                    return undefined
+                },
+                onDragEnd({ active }) {
+                    console.log(active, "end");
+                    return undefined
+                },
+                onDragCancel({ active }) {
+                    console.log(active, "cancel");
+                    return undefined
+                }
+            }
+        }}
     >
         <div className="calendar-content">
             {days.map(d => <CalendarDay day={d} key={d.date() + "-day" +( isNextMonth(d) ? "-next" : (isPrevMonth(d) ? "-prev" : ""))} />)}

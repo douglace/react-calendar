@@ -18,26 +18,26 @@ export default function EventItem({event, day}:{event:EventWeekType, day: moment
     
     const { deleteEvent } = useCalenderContext()
 
-    const [scope, animate] = useAnimate();
+    //const [scope, animate] = useAnimate();
 
     const style = transform ? {
         transform: `translate3d(${transform.x}px, ${transform.y}px, 0)`,
     } : undefined;
 
     const handleHoverIn = async () => {
-        await animate(".button-delete-event, .button-edit-event",  {
-            scale: 1, 
-            y: "-50%",
-            // transform: 'translate(0, -50%)'
-        }, { duration: .2 });
+        // await animate(".button-delete-event, .button-edit-event",  {
+        //     scale: 1, 
+        //     y: "-50%",
+        //     // transform: 'translate(0, -50%)'
+        // }, { duration: .2 });
     }
 
     const handleHoverOut = () => {
-        animate(".button-delete-event, .button-edit-event",  {
-            scale: 0, 
-            y: 0,
-            // transform: 'translate(0, -50%)'
-        }, { duration: .2 });
+        // animate(".button-delete-event, .button-edit-event",  {
+        //     scale: 0, 
+        //     y: 0,
+        //     // transform: 'translate(0, -50%)'
+        // }, { duration: .2 });
     }
 
     const EditEventButton = () => {
@@ -86,10 +86,10 @@ export default function EventItem({event, day}:{event:EventWeekType, day: moment
         <span className={`h-2 w-2 rounded-full`} style={{backgroundColor: event.event.color}}></span>
         {event.event.from.format('HH:mm') +" - "+ event.event.to.format('HH:mm')} {event.event.title.substring(0, 8)}...
 
-        <div ref={scope}>
+        {/* <div ref={scope}>
             <EditEventButton />
             <DeleteEventButton />
-        </div>
+        </div> */}
     </motion.div>
     }
 
@@ -106,10 +106,10 @@ export default function EventItem({event, day}:{event:EventWeekType, day: moment
             {...attributes}
         >
         {event.event.title.substring(0, 50)}
-        <div ref={scope}>
+        {/* <div ref={scope}>
             <EditEventButton />
             <DeleteEventButton />
-        </div>
+        </div> */}
     </motion.div>
 
     
