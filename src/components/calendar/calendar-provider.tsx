@@ -1,13 +1,15 @@
 "use client";
 
-import {createContext, ReactNode, useEffect, useState} from "react";
+import {createContext, ReactNode, useContext, useEffect, useState} from "react";
 import defaultEvents from "./events.json"
 import useEventStore from "./store/useEventStore";
 import { EventFormatedType } from "./classes/EventManager";
 
 export type CalendarEvent = {
+    type: "day"|"hour",
     fullday?: boolean,
     color: string,
+    description: string,
     title: string,
     from: string,
     to: string,
@@ -22,6 +24,8 @@ type CalendarContextType = {
     }) => void,
     date: Date,
     editDate: (date:Date) => void;
+    addEvent: ({event}:{event: Omit<EventFormatedType, 'duration'>}) => void;
+    deleteEvent: ({eventId}:{eventId: string}) => void;
 };
 
 export const CalendarContext = createContext<CalendarContextType>({
@@ -29,6 +33,8 @@ export const CalendarContext = createContext<CalendarContextType>({
     date: new Date(),
     editDate: () =>{},
     setDateEvent: () =>{},
+    addEvent: () =>{},
+    deleteEvent: () =>{},
 })
 
 
@@ -39,29 +45,35 @@ type CalendarProviderProps = {
 
 export function CalendarContextProvider ({children, defaultDate = new Date()}: CalendarProviderProps) {
     const [date, setDate] = useState<Date>(defaultDate);
-    const {init, events, editEvent} = useEventStore();
+    const {init, events, editEvent, addEvent, removeEvent} = useEventStore();
 
     const editDate = (d:Date) => {
         setDate(d)
     }
 
-    const addEvent = () => {
-
+    const handleAddEvent = ({event}: {event: Omit<EventFormatedType, 'duration'>}) => {
+        addEvent({
+            ...event,
+            from: event.from.format("YYYY-MM-DD HH:mm:ss"),
+            to: event.to.format("YYYY-MM-DD HH:mm:ss"),
+        });
     }
 
     const setDateEvent = ({event, from, to}: {event: EventFormatedType, from:moment.Moment, to:moment.Moment}) => {
         editEvent({
-            id: event.id,
-            fullday: event.fullday,
+            ...event,
             from: from.format("YYYY-MM-DD HH:mm:ss"),
             to: to.format("YYYY-MM-DD HH:mm:ss"),
-            color: event.color,
-            title: event.title
         });
     }
 
+    const deleteEvent = ({eventId}: {eventId: string}) => {
+        removeEvent(eventId)
+    }
+
+
     useEffect(() => {
-        init(defaultEvents);
+        init(defaultEvents as CalendarEvent[]);
     }, []);
 
     return <CalendarContext.Provider value={{
@@ -69,7 +81,17 @@ export function CalendarContextProvider ({children, defaultDate = new Date()}: C
         setDateEvent,
         date,
         editDate,
+        deleteEvent,
+        addEvent: handleAddEvent
     }}>
         {children}
     </CalendarContext.Provider>
+}
+
+export function useCalenderContext() {
+    const context = useContext(CalendarContext);
+
+    if (!context) throw "You most call this function inside de provider"
+
+    return context;
 }

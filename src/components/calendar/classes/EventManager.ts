@@ -8,6 +8,7 @@ export type EventFormatedType = {
     fullday?: boolean,
     type: "day"|"hour",
     duration: number,
+    description: string,
     title:string,
     color:string,
     id:string,
@@ -27,6 +28,7 @@ class EventManager {
         const type = durationInHour < 24 ? "hour" : "day";
         
         let res: EventFormatedType = {
+            description: ev.description,
             title: ev.title,
             color: ev.color,
             duration: type === "day" ? duration : durationInHour,

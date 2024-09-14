@@ -20,6 +20,10 @@ const MoreEventVariant = {
     }
 }
 
+const AddButtonVariant = {
+    
+}
+
 export {
     EventDayVariant,
     MoreEventVariant

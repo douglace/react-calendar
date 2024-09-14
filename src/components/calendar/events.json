@@ -1,143 +1,203 @@
 [
     {
+        "description": "Les structure de donnée en python",
         "title": "Les structure de donnée en python",
-        "color": "bg-pink-custom",
+        "color": "#E1AA7D",
         "from": "2024-08-03",
         "to": "2024-08-07",
-        "id": "1"
+        "id": "1",
+        "type": "day",        
+        "fullday": false      
     },
     {
+        "description": "Les condition en python",
         "title": "Les condition en python",
-        "color": "bg-amber-custom",
+        "color": "#F7A9A8",
         "from": "2024-08-07",
         "to": "2024-08-08",
-        "id": "2"
+        "id": "2",
+        "type": "day",        
+        "fullday": false      
     },
     {
+        "description": "Les boucles  en python",
         "title": "Les boucles  en python",
-        "color": "bg-white-custom",
+        "color": "#613F75",
         "from": "2024-08-08",
         "to": "2024-08-12",
-        "id": "3"
+        "id": "3",
+        "type": "day",        
+        "fullday": false      
     },
     {
+        "description": "Conférence sur la création d'une IA",
         "title": "Conférence sur la création d'une IA",
-        "color": "bg-yellow-custom",
+        "color": "#F2C14E",
         "from": "2024-08-01",
         "to": "2024-08-13",
-        "id": "4"
+        "id": "4",
+        "type": "day",        
+        "fullday": false      
     },
     {
+        "description": "Event five",
         "title": "Event five",
-        "color": "bg-yellow-custom",
+        "color": "#F2C14E",
         "from": "2024-08-10",
         "to": "2024-08-15",
-        "id": "5"
+        "id": "5",
+        "type": "day",        
+        "fullday": false      
     },
     {
+        "description": "Event 6",
         "title": "Event 6",
-        "color": "bg-yellow-custom",
+        "color": "#F2C14E",
         "from": "2024-08-12",
         "to": "2024-08-16",
-        "id": "6"
+        "id": "6",
+        "type": "day",        
+        "fullday": false      
     },
     {
+        "description": "Event 7",
         "title": "Event 7",
-        "color": "bg-yellow-custom",
+        "color": "#F2C14E",
         "from": "2024-08-13",
         "to": "2024-08-14",
-        "id": "7"
+        "id": "7",
+        "type": "day",        
+        "fullday": false      
     },
     {
+        "description": "Event 8",
         "title": "Event 8",
-        "color": "bg-yellow-custom",
+        "color": "#F2C14E",
         "from": "2024-08-13",
         "to": "2024-08-17",
-        "id": "8"
+        "id": "8",
+        "type": "day",        
+        "fullday": false      
     },
     {
+        "description": "Event 9",
         "title": "Event 9",
-        "color": "bg-yellow-custom",
+        "color": "#F2C14E",
         "from": "2024-08-14",
         "to": "2024-08-20",
-        "id": "9"
+        "id": "9",
+        "type": "day",        
+        "fullday": false      
     },
     {
+        "description": "Event 10",
         "title": "Event 10",
-        "color": "bg-yellow-custom",
+        "color": "#F2C14E",
         "from": "2024-08-15",
         "to": "2024-08-22",
-        "id": "10"
+        "id": "10",
+        "type": "day",        
+        "fullday": false      
     },
     {
+        "description": "Event 11",
         "title": "Event 11",
-        "color": "bg-yellow-custom",
+        "color": "#F2C14E",
         "from": "2024-08-19 10:00:00",
         "to": "2024-08-19 12:00:00",
-        "id": "11"
+        "id": "11",
+        "type": "day",        
+        "fullday": false      
     },
     {
+        "description": "Event 12",
         "title": "Event 12",
-        "color": "bg-yellow-custom",
+        "color": "#F2C14E",
         "from": "2024-08-10 09:00:00",
         "to": "2024-08-10 11:00:00",
-        "id": "12"
+        "id": "12",
+        "type": "day",        
+        "fullday": false      
     },
     {
+        "description": "Event 13",
         "title": "Event 13",
-        "color": "bg-yellow-custom",
+        "color": "#F2C14E",
         "from": "2024-08-09 08:00:00",
         "to": "2024-08-09 10:15:00",
-        "id": "13"
+        "id": "13",
+        "type": "day",        
+        "fullday": false      
     },
     {
+        "description": "Event 14",
         "title": "Event 14",
-        "color": "bg-yellow-custom",
+        "color": "#F2C14E",
         "from": "2024-08-20 15:00:00",
         "to": "2024-08-20 16:00:00",
-        "id": "14"
+        "id": "14",
+        "type": "day",        
+        "fullday": false      
     },
     {
+        "description": "Event 15",
         "title": "Event 15",
-        "color": "bg-yellow-custom",
+        "color": "#F2C14E",
         "from": "2024-08-21 16:00:00",
         "to": "2024-08-21 18:00:00",
-        "id": "15"
+        "id": "15",
+        "type": "day",        
+        "fullday": false      
     },
     {
+        "description": "Event 16",
         "title": "Event 16",
-        "color": "bg-yellow-custom",
+        "color": "#F2C14E",
         "from": "2024-08-26 17:00:00",
         "to": "2024-08-26 20:00:00",
-        "id": "16"
+        "id": "16",
+        "type": "day",        
+        "fullday": false      
     },
     {
+        "description": "Event 17",
         "title": "Event 17",
-        "color": "bg-yellow-custom",
+        "color": "#F2C14E",
         "from": "2024-08-26",
         "to": "2024-08-26",
         "fullday": true,
-        "id": "17"
+        "id": "17",
+        "type": "day",        
+        "fullday": false      
     },
     {
+        "description": "Event 18",
         "title": "Event 18",
-        "color": "bg-yellow-custom",
+        "color": "#F2C14E",
         "from": "2024-08-11",
         "to": "2024-08-19",
-        "id": "18"
+        "id": "18",
+        "type": "day",        
+        "fullday": false      
     },
     {
+        "description": "Event 19 je suis un peux long",
         "title": "Event 19 je suis un peux long",
-        "color": "bg-amber-custom",
+        "color": "#F7A9A8",
         "from": "2024-08-14",
         "to": "2024-08-25",
-        "id": "19"
+        "id": "19",
+        "type": "day",        
+        "fullday": false      
     },
     {
+        "description": "Event 20",
         "title": "Event 20",
-        "color": "bg-yellow-custom",
+        "color": "#F2C14E",
         "from": "2024-08-19",
         "to": "2024-08-27",
-        "id": "20"
+        "id": "20",
+        "type": "day",        
+        "fullday": false      
     }
 ]

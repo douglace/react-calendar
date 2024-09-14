@@ -15,7 +15,7 @@ const style: React.CSSProperties = {
     paddingTop: 2,
     paddingBottom: 2,
     cursor: 'pointer',
-    zIndex: '900',
+    zIndex: '10',
 }
 
 type MoreEventsProps = {

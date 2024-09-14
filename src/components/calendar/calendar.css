@@ -19,7 +19,7 @@
 }
 
 .c-day {
-    @apply aspect-square flex flex-col gap-1  justify-center border bg-slate-300 relative
+    @apply aspect-square flex flex-col gap-1  justify-center border bg-transparent relative
 }
 
 .day-bottom {
@@ -33,7 +33,16 @@
 
 button.add-event {
     @apply w-8 h-8 bg-white rounded-full opacity-0 scale-0 flex items-center justify-center
-    cursor-pointer absolute right-1 bottom-1 shadow-md
+    cursor-pointer absolute right-1 bottom-1 shadow-md z-20
+}
+
+.animate-form-start {
+    @apply absolute z-[2] bg-slate-300 inset-0 w-1 h-1 top-[50%] left-[50%] -translate-x-[50%] -translate-y-[50%] rounded-full
+}
+
+.event-day-value {
+    @apply absolute  z-[3] inset-0 bottom-2 
+    flex items-end justify-center
 }
 
 .event-item {
@@ -41,30 +50,38 @@ button.add-event {
 }
 
 .event-item.--hour {
-    @apply absolute flex items-center gap-1 !border-0 bg-black text-white mx-0 
+    @apply absolute flex items-center gap-1 !border-0 bg-black text-white mx-0 w-full
+}
+
+.button-edit-event {
+    @apply bg-white shadow-md border rounded-sm text-cyan-500 w-4 h-4 absolute flex items-center justify-center right-8 top-[50%] -translate-y-[50%] scale-0
+}
+
+.button-delete-event {
+    @apply shadow-md border rounded-sm bg-white text-red-500   w-4 h-4 absolute right-2 flex items-center justify-center top-[50%] -translate-y-[50%] scale-0
 }
 
 
 .event-pos-1 {
-    @apply top-0  z-30
+    @apply top-0  z-[5]
 }
 .event-pos-2 {
-    @apply top-7  z-40
+    @apply top-7 mt-[2px]  z-[6]
 }
 .event-pos-3 {
-    @apply top-14  z-50
+    @apply top-14 mt-[4px]   z-[7]
 }
 .event-pos-4 {
-    @apply top-[5.25rem]  z-50
+    @apply top-[5.25rem] mt-[6px]   z-[8]
 }
 .event-pos-5 {
-    @apply top-[7rem]  z-50
+    @apply top-[7rem] mt-[8px]   z-[9]
 }
 .event-pos-6 {
-    @apply top-[8.75rem]  z-50
+    @apply top-[8.75rem]  z-[10]
 }
 .event-pos-7 {
-    @apply top-[10.5rem]  z-50
+    @apply top-[10.5rem]  z-[11]
 }
 
 .event-size-7 {
@@ -103,4 +120,8 @@ button.add-event {
 
 .bg-yellow-custom {
     @apply bg-yellow-800 text-white
+}
+
+.center-position {
+    @apply top-[50%] left-[50%] -translate-x-[50%] -translate-y-[50%]
 }
