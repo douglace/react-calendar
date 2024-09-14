@@ -1,4 +1,4 @@
-import { useContext, useMemo } from "react";
+import { useMemo } from "react";
 import { useCalendar } from "../useCalendar"
 import CalendarDay from "./calendar-day"
 import moment from 'moment';
@@ -22,7 +22,8 @@ export default function CalendarContent()
 
     const handleDragEnd = (event:DragEndEvent) => {
         const current = event.active.data.current as EventWeekType
-        const newFrom = event.over?.data.current?.day as moment.Moment
+        const newFrom = event.over?.data.current?.day as moment.Moment;
+        
         if (current.from.format("YYYY-MM-DD HH:mm:ss") == newFrom.format("YYYY-MM-DD HH:mm:ss")) {
             return;
         }
@@ -43,7 +44,6 @@ export default function CalendarContent()
             from: newFrom,
             to: to
         });
-        //console.log(event, "end")
     }
 
     const handleDragStart= (event:DragStartEvent) => {

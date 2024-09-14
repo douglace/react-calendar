@@ -27,6 +27,7 @@ import { DatetimePicker } from "@/components/ui/date-time-picker";
 import moment from "moment";
 import { useCalenderContext } from "../calendar-provider";
 import { motion } from "framer-motion";
+import { EventFormatedType } from "../classes/EventManager";
 
 const eventFormSchema = z.object({
     fullday: z.boolean(),
@@ -46,7 +47,7 @@ const eventFormSchema = z.object({
     }).max(80, {
         message: "Title must be max 80 characters.",
     }),
-    description: z.string().min(10, {
+    description: z.string().min(3, {
         message: "Title must be at least 10 characters.",
     }).max(500, {
         message: "Title must be max 500 characters.",
@@ -56,11 +57,12 @@ const eventFormSchema = z.object({
 
 type EventFormType = {
     currenDate?: moment.Moment,
-    onSubmitForm: () => void
+    onSubmitForm: () => void,
+    event?: EventFormatedType
 }
 
-const EventForm = forwardRef<HTMLFormElement, EventFormType>(({currenDate, onSubmitForm}, ref) => {
-    const { addEvent } = useCalenderContext();
+const EventForm = forwardRef<HTMLFormElement, EventFormType>(({event, currenDate, onSubmitForm}, ref) => {
+    const { addEvent, setEvent } = useCalenderContext();
 
     const form = useForm<z.infer<typeof eventFormSchema>>({
         resolver: zodResolver(eventFormSchema),
@@ -75,6 +77,16 @@ const EventForm = forwardRef<HTMLFormElement, EventFormType>(({currenDate, onSub
         },
     });
 
+    useEffect(() => {
+        if (event) {
+            form.reset({
+                ...event,
+                from: event.from.toDate(),
+                to: event.to.toDate(),
+            })
+        }
+    }, [event]);
+
     function onSubmit(values: z.infer<typeof eventFormSchema>) {
         let {from, to} = values;
 
@@ -82,14 +94,20 @@ const EventForm = forwardRef<HTMLFormElement, EventFormType>(({currenDate, onSub
 
         }
 
-        addEvent({
-            event: {
-                ...values,
-                from: moment(from),
-                to: moment(to),
-                id: Date.now().toString()
-            }
-        });
+        const newEvent = {
+            ...values,
+            from: moment(from),
+            to: moment(to),
+            id: event?.id || Date.now().toString()
+        }
+        if (newEvent.id) {
+            setEvent({ event: newEvent });
+        } else {
+            addEvent({ event: newEvent });
+        }
+
+        
+        
         onSubmitForm()
     }
 

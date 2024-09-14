@@ -66,7 +66,6 @@ export default function EventItem({event, day}:{event:EventWeekType, day: moment
                 }}
                 onClick={(e) =>  {
                     e.stopPropagation();
-                    console.log(e);
                     deleteEvent({eventId: event.event.id});
                 }}
             >
@@ -74,19 +73,15 @@ export default function EventItem({event, day}:{event:EventWeekType, day: moment
         </motion.button>
     }
 
-    const HourEvent = () => {
+    if (event.type == "hour") {
         return <motion.div
             onMouseEnter={handleHoverIn}
             onMouseLeave={handleHoverOut}
             className={`event-item  --hour event-pos-${event.position}`}
-            ref={setNodeRef} 
             style={style} 
+            ref={setNodeRef} 
             {...listeners} 
             {...attributes}
-            onClick={(e) => {
-                console.log(e.target,e.currentTarget)
-            }}
-
         >
         <span className={`h-2 w-2 rounded-full`} style={{backgroundColor: event.event.color}}></span>
         {event.event.from.format('HH:mm') +" - "+ event.event.to.format('HH:mm')} {event.event.title.substring(0, 8)}...
@@ -98,36 +93,24 @@ export default function EventItem({event, day}:{event:EventWeekType, day: moment
     </motion.div>
     }
 
-    const DayEvent = () => {
-        return <motion.div 
-        onMouseEnter={handleHoverIn}
-        onMouseLeave={handleHoverOut}
-        
-        className={`event-item  event-pos-${event.position} event-size-${event.duration}`}
-        ref={setNodeRef} 
-        style={{...style, backgroundColor: event.event.color}} 
-        {...listeners} 
-        {...attributes}
-        onClick={(e) => {
-            console.log(e.target,e.currentTarget)
-        }}
-    >
-    {event.event.title.substring(0, 50)}
-    <div ref={scope}>
-        <EditEventButton />
-        <DeleteEventButton />
-    </div>
-</motion.div>
-    }
+    
     
 
-    
+    return  <motion.div 
+            onMouseEnter={handleHoverIn}
+            onMouseLeave={handleHoverOut}
+            ref={setNodeRef} 
+            className={`event-item  event-pos-${event.position} event-size-${event.duration}`}
+            style={{...style, backgroundColor: event.event.color}} 
+            {...listeners} 
+            {...attributes}
+        >
+        {event.event.title.substring(0, 50)}
+        <div ref={scope}>
+            <EditEventButton />
+            <DeleteEventButton />
+        </div>
+    </motion.div>
 
-    return <>
-        {
-            event.type == "hour"
-            ? <HourEvent />
-            : <DayEvent />
-        }
-    </>
+    
 }

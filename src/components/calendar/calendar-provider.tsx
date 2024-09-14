@@ -25,6 +25,7 @@ type CalendarContextType = {
     date: Date,
     editDate: (date:Date) => void;
     addEvent: ({event}:{event: Omit<EventFormatedType, 'duration'>}) => void;
+    setEvent: ({event}:{event: Omit<EventFormatedType, 'duration'>}) => void;
     deleteEvent: ({eventId}:{eventId: string}) => void;
 };
 
@@ -34,6 +35,7 @@ export const CalendarContext = createContext<CalendarContextType>({
     editDate: () =>{},
     setDateEvent: () =>{},
     addEvent: () =>{},
+    setEvent: () =>{},
     deleteEvent: () =>{},
 })
 
@@ -71,9 +73,19 @@ export function CalendarContextProvider ({children, defaultDate = new Date()}: C
         removeEvent(eventId)
     }
 
+    const setEvent = ({event}:{event: Omit<EventFormatedType, 'duration'>}) => {
+        editEvent({
+            ...event,
+            from: event.from.format("YYYY-MM-DD HH:mm:ss"),
+            to: event.to.format("YYYY-MM-DD HH:mm:ss"),
+        });
+    }
+
 
     useEffect(() => {
-        init(defaultEvents as CalendarEvent[]);
+        if (events.length == 0) {
+            init(defaultEvents as CalendarEvent[]);
+        }
     }, []);
 
     return <CalendarContext.Provider value={{
@@ -82,6 +94,7 @@ export function CalendarContextProvider ({children, defaultDate = new Date()}: C
         date,
         editDate,
         deleteEvent,
+        setEvent,
         addEvent: handleAddEvent
     }}>
         {children}

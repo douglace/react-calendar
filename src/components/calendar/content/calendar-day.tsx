@@ -50,13 +50,11 @@ export default function CalendarDay({day}:CalendarDayProps) {
         className="c-day" 
         onMouseEnter={showAddButton}
         onMouseLeave={hiddenAddButton}
-        
-        
     >
         <motion.div 
             className="day-wrapper h-full w-full"
             ref={setNodeRef} style={style}
-            layout
+            
         >
             <div 
                 className="absolute inset-0 bg-slate-300"
