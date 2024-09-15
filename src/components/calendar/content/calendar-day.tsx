@@ -98,10 +98,10 @@ export default function CalendarDay({day}:CalendarDayProps) {
             
             {
                 eventsCanShow.length == 0
-                ? <div className="event-day-value" style={{  opacity: opacity }}>{day.date()}</div>
+                ? null
                 : eventsCanShow.map((a,i) => <EventItem key={i} event={a} day={day} />)
             }
-            
+            <div className="event-day-value" style={{  opacity: opacity }}>{day.date()}</div>
             <AnimatePresence mode="wait">
                 {
                     !openForm

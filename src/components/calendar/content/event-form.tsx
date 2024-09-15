@@ -83,7 +83,8 @@ const EventForm = forwardRef<HTMLFormElement, EventFormType>(({event, currenDate
                 ...event,
                 from: event.from.toDate(),
                 to: event.to.toDate(),
-            })
+            });
+            console.log('reset')
         }
     }, [event]);
 
