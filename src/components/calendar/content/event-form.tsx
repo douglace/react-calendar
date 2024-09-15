@@ -71,7 +71,7 @@ const EventForm = forwardRef<HTMLFormElement, EventFormType>(({event, currenDate
           fullday: false,
           type:"day",
           description: "",
-          color: "#E7a797",
+          color: "#EBa797",
           from: currenDate?.toDate() || new Date,
           to: (new Date((currenDate?.toDate() || new Date).setTime((currenDate?.toDate().getTime() || Date.now()) + (24 * 3600 * 60 * 40))))
         },
@@ -90,20 +90,19 @@ const EventForm = forwardRef<HTMLFormElement, EventFormType>(({event, currenDate
     function onSubmit(values: z.infer<typeof eventFormSchema>) {
         let {from, to} = values;
 
-        if (values.fullday) {
+        // if (values.fullday) {
 
-        }
-
+        // }
+        
         const newEvent = {
             ...values,
             from: moment(from),
-            to: moment(to),
-            id: event?.id || Date.now().toString()
+            to: moment(to)
         }
-        if (newEvent.id) {
-            setEvent({ event: newEvent });
+        if (event?.id) {
+            setEvent({ event: {...newEvent, id: event.id} });
         } else {
-            addEvent({ event: newEvent });
+            addEvent({ event: {...newEvent, id: Date.now().toString()} });
         }
 
         

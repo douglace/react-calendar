@@ -54,10 +54,11 @@ export function CalendarContextProvider ({children, defaultDate = new Date()}: C
     }
 
     const handleAddEvent = ({event}: {event: Omit<EventFormatedType, 'duration'>}) => {
+        
         addEvent({
             ...event,
-            from: event.from.format("YYYY-MM-DD HH:mm:ss"),
-            to: event.to.format("YYYY-MM-DD HH:mm:ss"),
+            from: event.from.format("yyy-MM-DD HH:mm:ss"),
+            to: event.to.format("yyy-MM-DD HH:mm:ss"),
         });
     }
 
@@ -85,6 +86,7 @@ export function CalendarContextProvider ({children, defaultDate = new Date()}: C
     useEffect(() => {
         if (events.length == 0) {
             init(defaultEvents as CalendarEvent[]);
+            
         }
     }, []);
 

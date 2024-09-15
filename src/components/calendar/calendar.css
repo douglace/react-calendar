@@ -3,7 +3,7 @@
 }
 
 .calendar-wrapper {
-    @apply container mt-10
+    @apply container mt-10 max-w-[1000px] max-h-[1000px] min-h-svh overflow-auto
 }
 
 .calendar-content, .c-header-day {
@@ -11,11 +11,19 @@
 }
 
 .c-header-day-item {
-    @apply h-10 flex items-center justify-center border bg-slate-100
+    @apply h-10 flex items-center justify-center border bg-white
 }
 
 .c-header-nav {
-    @apply flex justify-between mb-2
+    @apply flex gap-1 mb-4 items-center
+}
+
+.c-header-nav .nav-button {
+    @apply rounded-[2px] shadow-lg
+}
+
+.c-header-nav .nav-month {
+    @apply text-lg ml-auto font-semibold
 }
 
 .c-day {
@@ -46,7 +54,7 @@ button.add-event {
 }
 
 .event-item {
-    @apply border rounded-sm flex overflow-hidden h-7 px-3 py-1 
+    @apply border rounded-sm flex overflow-hidden  px-3 py-1  text-[.5rem]
 }
 
 .event-item.--hour {
@@ -66,16 +74,16 @@ button.add-event {
     @apply top-0  z-[5]
 }
 .event-pos-2 {
-    @apply top-7 mt-[2px]  z-[6]
+    @apply top-5 mt-[.1rem]  z-[6]
 }
 .event-pos-3 {
-    @apply top-14 mt-[4px]   z-[7]
+    @apply top-10 mt-[.2rem]  z-[7]
 }
 .event-pos-4 {
-    @apply top-[5.25rem] mt-[6px]   z-[8]
+    @apply top-[3.75rem] mt-[.4rem]   z-[8]
 }
 .event-pos-5 {
-    @apply top-[7rem] mt-[8px]   z-[9]
+    @apply top-[7rem] mt-0   z-[9]
 }
 .event-pos-6 {
     @apply top-[8.75rem]  z-[10]
@@ -106,21 +114,6 @@ button.add-event {
     @apply absolute  w-[100%] 
 }
 
-.bg-pink-custom {
-    @apply bg-pink-300
-}
-
-.bg-amber-custom {
-    @apply bg-amber-300
-}
-
-.bg-white-custom {
-    @apply bg-neutral-800 text-white
-}
-
-.bg-yellow-custom {
-    @apply bg-yellow-800 text-white
-}
 
 .center-position {
     @apply top-[50%] left-[50%] -translate-x-[50%] -translate-y-[50%]

@@ -19,7 +19,7 @@ const ColorPicker = forwardRef<HTMLInputElement, InputProps>((
     { className, value, label, onChangeColor, type, ...props }, ref) => {
     const [color, setColor] = useColor(value ? value :"#E7E7E7");
     const [open, setOpen] = useState(false);
-    const [scope, animate] = useAnimate();
+    // const [scope, animate] = useAnimate();
 
     const handleToogle = () => {
         // if (open) {
@@ -30,7 +30,7 @@ const ColorPicker = forwardRef<HTMLInputElement, InputProps>((
         setOpen(!open)
     }
 
-    return <motion.div className={cn(className)} layout>
+    return <motion.div className={cn(className)} >
         <Label onClick={() => setOpen(true)} className="block mb-3"> {label ? label : "Pick color"} </Label>
         <input 
             ref={ref} 
@@ -39,13 +39,13 @@ const ColorPicker = forwardRef<HTMLInputElement, InputProps>((
             value={color.hex}
             onChange={(e) => onChangeColor ? onChangeColor(e.target.value) : props.onChange ? props.onChange(e) : null}
         />
-        <div ref={scope} className="flex justify-between items-center gap-2 rounded-sm mb-2">
+        <div  className="flex justify-between items-center gap-2 rounded-sm mb-2">
             <div className="w-full">
                 
                 <AnimatePresence>
                     {
                         open
-                        ? <motion.div layoutId="pallete-color" className="w-full flex flex-col gap-2 items-center">
+                        ? <motion.div  className="w-full flex flex-col gap-2 items-center">
                             <div className="w-full">
                                 <PaletteColorPicker  
                                     hideInput={["rgb", "hsv"]} 
@@ -75,7 +75,7 @@ const ColorPicker = forwardRef<HTMLInputElement, InputProps>((
                                 backgroundColor: color.hex
                             }}
                             onClick={handleToogle}
-                            layoutId="pallete-color"
+                            
                         ></motion.div>
                     }
                 </AnimatePresence>

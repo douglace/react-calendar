@@ -106,7 +106,7 @@
         "from": "2024-08-19 10:00:00",
         "to": "2024-08-19 12:00:00",
         "id": "11",
-        "type": "day",        
+        "type": "hour",        
         "fullday": false      
     },
     {
@@ -116,7 +116,7 @@
         "from": "2024-08-10 09:00:00",
         "to": "2024-08-10 11:00:00",
         "id": "12",
-        "type": "day",        
+        "type": "hour",        
         "fullday": false      
     },
     {
@@ -126,7 +126,7 @@
         "from": "2024-08-09 08:00:00",
         "to": "2024-08-09 10:15:00",
         "id": "13",
-        "type": "day",        
+        "type": "hour",        
         "fullday": false      
     },
     {
@@ -136,7 +136,7 @@
         "from": "2024-08-20 15:00:00",
         "to": "2024-08-20 16:00:00",
         "id": "14",
-        "type": "day",        
+        "type": "hour",        
         "fullday": false      
     },
     {
@@ -146,7 +146,7 @@
         "from": "2024-08-21 16:00:00",
         "to": "2024-08-21 18:00:00",
         "id": "15",
-        "type": "day",        
+        "type": "hour",        
         "fullday": false      
     },
     {
@@ -156,7 +156,7 @@
         "from": "2024-08-26 17:00:00",
         "to": "2024-08-26 20:00:00",
         "id": "16",
-        "type": "day",        
+        "type": "hour",        
         "fullday": false      
     },
     {
@@ -165,10 +165,9 @@
         "color": "#F2C14E",
         "from": "2024-08-26",
         "to": "2024-08-26",
-        "fullday": true,
         "id": "17",
         "type": "day",        
-        "fullday": false      
+        "fullday": true      
     },
     {
         "description": "Event 18",
@@ -197,6 +196,16 @@
         "from": "2024-08-19",
         "to": "2024-08-27",
         "id": "20",
+        "type": "day",        
+        "fullday": false      
+    },
+    {
+        "description": "Event 21",
+        "title": "Event 21",
+        "color": "#F2C14E",
+        "from": "2024-09-11 00:00:00",
+        "to": "2024-09-13 09:36:00",
+        "id": "21",
         "type": "day",        
         "fullday": false      
     }

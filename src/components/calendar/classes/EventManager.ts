@@ -25,7 +25,7 @@ class EventManager {
         const to = moment(ev.to);
         const durationInHour = to.diff(from, "hours");
         const duration = to.diff(from, "days") + 1;
-        const type = durationInHour < 24 ? "hour" : "day";
+        const type = ev.type;
         
         let res: EventFormatedType = {
             description: ev.description,
