@@ -1,7 +1,7 @@
 import { cn } from "@/lib/utils";
-import { AnimatePresence, useAnimate } from "framer-motion";
+import { AnimatePresence } from "framer-motion";
 import { forwardRef, useState } from "react";
-import { ColorPicker as PaletteColorPicker, useColor, Saturation, Hue, } from "react-color-palette";
+import { ColorPicker as PaletteColorPicker, useColor } from "react-color-palette";
 import "react-color-palette/css";
 
 import { motion } from "framer-motion"

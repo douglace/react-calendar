@@ -5,8 +5,8 @@ import moment from 'moment';
 import {
     DndContext, 
     DragEndEvent, 
-    DragStartEvent, 
-    DragOverEvent, 
+    // DragStartEvent, 
+    // DragOverEvent, 
     useSensor, 
     PointerSensor,
     MouseSensor,
@@ -57,15 +57,15 @@ export default function CalendarContent()
         });
     }
 
-    const handleDragStart= (event:DragStartEvent) => {
-        return; 
-        //console.log(event, "start")
-    }
+    // const handleDragStart= (event:DragStartEvent) => {
+    //     return; 
+    //     //console.log(event, "start")
+    // }
 
-    const handleDragOver= (event:DragOverEvent) => {
-        return;
-        //console.log(event, 'over')
-    }
+    // const handleDragOver= (event:DragOverEvent) => {
+    //     return;
+    //     //console.log(event, 'over')
+    // }
 
     const pointerSensor = useSensor(PointerSensor, {
         activationConstraint: {
@@ -87,8 +87,8 @@ export default function CalendarContent()
     return (
     <DndContext
         onDragEnd={handleDragEnd}
-        onDragStart={handleDragStart}
-        onDragOver={handleDragOver}
+        // onDragStart={handleDragStart}
+        // onDragOver={handleDragOver}
         sensors={sensors}
     >
         <div className="calendar-content">
