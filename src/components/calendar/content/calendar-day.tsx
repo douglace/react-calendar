@@ -109,6 +109,7 @@ export default function CalendarDay({day}:CalendarDayProps) {
                             className="animate-form-start"
                             onClick={() => setOpenForm(true)}
                             layoutId={"form"+day.unix()}
+                            style={{backgroundColor: isOver ? style.backgroundColor : ""}}
                         > 
                         
                         </motion.button>
