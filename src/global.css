@@ -64,6 +64,6 @@
     @apply border-border;
   }
   body {
-    @apply bg-neutral-100 text-foreground;
+    @apply bg-background text-foreground min-h-[1500px];
   }
 }

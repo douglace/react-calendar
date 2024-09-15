@@ -18,7 +18,7 @@ export default function CalendarDay({day}:CalendarDayProps) {
     const {getEventsByDay, isNextMonth, isPrevMonth} = useCalendar();
     const events = useMemo(() => getEventsByDay(day), [day]);
     const eventsCanShow =  useMemo(() => events.filter(e => e.position <= 4), [events]);
-    // const hidenEvents =  useMemo(() => events.filter(e => e.position > 4), [events]);
+    const hidenEvents =  useMemo(() => events.filter(e => e.position > 4), [events]);
     const [open, setOpen] = useState(false);
     const [openForm, setOpenForm] = useState(false);
     const [scope, animate] = useAnimate();
@@ -119,7 +119,7 @@ export default function CalendarDay({day}:CalendarDayProps) {
             <div className="day-bottom">
                 <AnimatePresence mode="wait">
                     {
-                        events.length > 0
+                        hidenEvents.length > 0
                         ?   (
                                 !open
                                 ? <MotionMoreEvents

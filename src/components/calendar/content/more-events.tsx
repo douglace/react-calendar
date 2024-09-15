@@ -9,7 +9,6 @@ import {
 } from "@/components/ui/tooltip"
 
 const style: React.CSSProperties = {
-    backgroundColor: '#FFF',
     paddingLeft: 5,
     paddingRight: 5,
     paddingTop: 2,

@@ -66,8 +66,7 @@ export default function EventItem({event, day}:{event:EventWeekType, day: moment
                 layoutId={"edit-event-"+event.event.id}
             />, document.body) : <motion.span 
                     layoutId={"edit-event-"+event.event.id}
-                    style={{backgroundColor: "#000"}}
-                    className="w-1 h-1"
+                    className="w-1 h-1 bg-foreground"
                 ></motion.span>
         }
         <div ref={scope}>

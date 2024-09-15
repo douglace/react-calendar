@@ -11,7 +11,7 @@
 }
 
 .c-header-day-item {
-    @apply h-10 flex items-center justify-center border bg-white
+    @apply h-10 flex items-center justify-center border bg-background text-foreground
 }
 
 .c-header-nav {
@@ -35,17 +35,17 @@
 }
 
 .day-bottom .more-event {
-    @apply w-5 h-5 bg-white rounded-full absolute left-1 bottom-1 shadow-md flex items-center
+    @apply w-5 h-5 bg-slate-100 text-foreground dark:bg-slate-800 rounded-full absolute left-1 bottom-1 shadow-md flex items-center
     justify-center
 }
 
 button.add-event {
-    @apply w-8 h-8 bg-white rounded-full opacity-0 scale-0 flex items-center justify-center
+    @apply w-8 h-8 bg-slate-100 text-foreground dark:bg-slate-800 rounded-full opacity-0 scale-0 flex items-center justify-center
     cursor-pointer absolute right-1 bottom-1 shadow-md z-20
 }
 
 .animate-form-start {
-    @apply absolute z-[2] bg-slate-300 inset-0 w-1 h-1 top-[50%] left-[50%] -translate-x-[50%] -translate-y-[50%] rounded-full
+    @apply absolute z-[2] bg-background inset-0 w-1 h-1 top-[50%] left-[50%] -translate-x-[50%] -translate-y-[50%] rounded-full
 }
 
 .event-day-value {
@@ -54,11 +54,11 @@ button.add-event {
 }
 
 .event-item {
-    @apply border rounded-sm flex overflow-hidden  px-3 py-1  text-[.5rem]
+    @apply border rounded-sm flex overflow-hidden  px-3 py-1  text-[.5rem] text-background
 }
 
 .event-item.--hour {
-    @apply absolute flex items-center gap-1 !border-0 bg-black text-white mx-0 w-full
+    @apply absolute flex items-center gap-1 !border-0 bg-foreground text-background mx-0 w-full
 }
 
 .button-edit-event {

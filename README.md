@@ -1,50 +1,71 @@
-# React + TypeScript + Vite
+# React Calendar
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Une application de calendrier construite avec React, permettant de gérer des événements de manière intuitive. Cette application utilise des bibliothèques modernes pour offrir une expérience utilisateur fluide et réactive.
 
-Currently, two official plugins are available:
+## Fonctionnalités
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+- **Gestion des événements** : Ajoutez, modifiez et supprimez des événements facilement.
+- **Vue calendrier** : Affichez les événements par mois.
+- **Drag and Drop** : Réorganisez les événements par glisser-déposer.
+- **Thèmes personnalisables** : Changez l'apparence de l'application selon vos préférences.
 
-## Expanding the ESLint configuration
+## Technologies Utilisées
 
-If you are developing a production application, we recommend updating the configuration to enable type aware lint rules:
+- **React** : Bibliothèque JavaScript pour construire des interfaces utilisateur.
+- **TypeScript** : Superset de JavaScript qui ajoute des types statiques.
+- **Vite** : Outil de construction rapide pour les projets modernes.
+- **Tailwind CSS** : Framework CSS utilitaire pour un design réactif.
+- **Framer Motion** : Bibliothèque pour des animations fluides.
+- **Zustand** : Gestion d'état simple et efficace.
 
-- Configure the top-level `parserOptions` property like this:
+## Installation
 
-```js
-export default tseslint.config({
-  languageOptions: {
-    // other options...
-    parserOptions: {
-      project: ['./tsconfig.node.json', './tsconfig.app.json'],
-      tsconfigRootDir: import.meta.dirname,
-    },
-  },
-})
-```
+Pour installer et exécuter l'application, suivez ces étapes :
 
-- Replace `tseslint.configs.recommended` to `tseslint.configs.recommendedTypeChecked` or `tseslint.configs.strictTypeChecked`
-- Optionally add `...tseslint.configs.stylisticTypeChecked`
-- Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and update the config:
+1. Clonez le dépôt :
+   ```bash
+   git clone https://github.com/douglace/react-calendar.git
+   cd react-calendar
+   ```
 
-```js
-// eslint.config.js
-import react from 'eslint-plugin-react'
+2. Installez les dépendances :
+   ```bash
+   npm install
+   ```
 
-export default tseslint.config({
-  // Set the react version
-  settings: { react: { version: '18.3' } },
-  plugins: {
-    // Add the react plugin
-    react,
-  },
-  rules: {
-    // other rules...
-    // Enable its recommended rules
-    ...react.configs.recommended.rules,
-    ...react.configs['jsx-runtime'].rules,
-  },
-})
-```
+3. Démarrez le serveur de développement :
+   ```bash
+   npm run dev
+   ```
+
+4. Ouvrez votre navigateur et accédez à `http://localhost:5173/`.
+
+## Scripts
+
+- `dev` : Démarre le serveur de développement.
+- `build` : Compile l'application pour la production.
+- `lint` : Vérifie le code avec ESLint.
+- `preview` : Prévisualise l'application construite.
+
+## Dépendances
+
+Voici les principales dépendances utilisées dans ce projet :
+
+- `@dnd-kit/core` : Pour la gestion du drag and drop.
+- `moment` : Pour la manipulation des dates.
+- `react-hook-form` : Pour la gestion des formulaires.
+- `zod` : Pour la validation des schémas de données.
+
+## Contribuer
+
+Les contributions sont les bienvenues ! Pour contribuer, veuillez suivre ces étapes :
+
+1. Forkez le projet.
+2. Créez une nouvelle branche (`git checkout -b feature/MonNouvelleFonctionnalité`).
+3. Effectuez vos modifications et validez (`git commit -m 'Ajoute une nouvelle fonctionnalité'`).
+4. Poussez vos modifications (`git push origin feature/MonNouvelleFonctionnalité`).
+5. Ouvrez une Pull Request.
+
+## License
+
+Ce projet est sous licence MIT. Consultez le fichier LICENSE pour plus de détails.
