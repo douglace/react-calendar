@@ -16,11 +16,13 @@ import {
 } from '@dnd-kit/core';
 import { EventWeekType } from "../classes/CalendarEvent";
 import { useCalenderContext } from "../calendar-provider";
+import { coordinateGetter } from "../multiple-keyboard-preset";
 
 export default function CalendarContent()
 {
-    const {groupWeek, isNextMonth, isPrevMonth} = useCalendar()
-    const {setDateEvent} = useCalenderContext()
+    const {groupWeek, isNextMonth, isPrevMonth} = useCalendar();
+    const {setDateEvent} = useCalenderContext();
+
     const days = useMemo(() => {
         let result:moment.Moment[] = [];
         for(let week of groupWeek) {
@@ -57,6 +59,8 @@ export default function CalendarContent()
         });
     }
 
+    
+
     // const handleDragStart= (event:DragStartEvent) => {
     //     return; 
     //     //console.log(event, "start")
@@ -69,12 +73,14 @@ export default function CalendarContent()
 
     const pointerSensor = useSensor(PointerSensor, {
         activationConstraint: {
-          distance: 0.01
+          distance: 0.08
         }
       })
       const mouseSensor = useSensor(MouseSensor)
       const touchSensor = useSensor(TouchSensor)
-      const keyboardSensor = useSensor(KeyboardSensor)
+      const keyboardSensor = useSensor(KeyboardSensor, {
+        coordinateGetter: coordinateGetter,
+    })
     
       const sensors = useSensors(
         mouseSensor,
