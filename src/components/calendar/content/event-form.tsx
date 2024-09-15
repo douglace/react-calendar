@@ -258,7 +258,7 @@ const EventForm = forwardRef<HTMLFormElement, EventFormType>(({event, currenDate
             }}
         />
 
-        <Button type="submit">Submit</Button>
+        <Button type="submit" className="bg-foreground text-background shadow-lg">Submit</Button>
         </form>
     </Form>
 });

@@ -17,7 +17,6 @@ const style: React.CSSProperties  = {
     position:"relative",
     width: 700,
     height: 500,
-    backgroundColor: '#FFF',
     borderRadius: 5,
     zIndex: 1002,
     cursor: 'pointer',
@@ -37,7 +36,7 @@ const EventsDayBox = forwardRef<HTMLInputElement, EventsDayBoxProps>(({onClose, 
             <div
                 style={style}
                 ref={ref}
-                className="shadow-lg"
+                className="shadow-lg bg-background"
                 onClick={(e) => e.stopPropagation()}
             >   <div className="list-events p-5 w-full h-full pt-10">
                 <h1 className="font-semibold border-b mb-4 text-lg">Ma liste d'évènement de la journée</h1>

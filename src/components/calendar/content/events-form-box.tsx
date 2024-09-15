@@ -16,7 +16,6 @@ const style: React.CSSProperties  = {
     position:"relative",
     width: 700,
     height: 500,
-    backgroundColor: '#FFF',
     borderRadius: 5,
     zIndex: 30,
     cursor: 'pointer',
@@ -29,11 +28,11 @@ const EventsFormDayBox = forwardRef<HTMLInputElement, EventsFormBoxProps>(({onCl
         <div 
             style={style}
             ref={ref}
-            className="shadow-lg  rounded-md border p-4 overflow-auto"
+            className="shadow-lg  rounded-md border py-4 overflow-auto bg-background"
             onClick={(e) => e.stopPropagation()}
         >
-            <ScrollArea className="h-full w-full py-2 px-3 ">
-                <div className="pt-10">
+            <ScrollArea className="h-full w-full py-2  ">
+                <div className="pt-10 px-5">
                     <EventForm 
                         currenDate={event ? undefined : currenDate}
                         onSubmitForm={() => onClose()}
